@@ -185,6 +185,9 @@ export default function AIAgentChat() {
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
+  const BASE_URL = "https://chatbot-gemini-whf6.onrender.com/api/chat";
+  // const BASE_URL = "http://localhost:5000/api/chat";
+
   // Save messages to localStorage only during session
   useEffect(() => {
     localStorage.setItem("chat_history", JSON.stringify(messages));
@@ -231,7 +234,7 @@ export default function AIAgentChat() {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/chat", {
+      const res = await axios.post(BASE_URL, {
         message: newMessage.content,
         type,
       });
