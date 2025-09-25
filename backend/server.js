@@ -74,7 +74,8 @@ app.post("/api/chat", async (req, res) => {
 });
 
 app.use(express.static(path.join("build")));
-const frontendBuildPath = path.join(__dirname, "../build");
+const frontendBuildPath = path.join(__dirname, "./build");
+
 app.use(express.static(frontendBuildPath));
 
 
